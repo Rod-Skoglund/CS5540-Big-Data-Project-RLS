@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tweet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-text>This graph shows the tweet that has the most retweets for each hour with the
+        amount of retweets, followers for the tweet's user and the groups associated with
+        the tweet's user of tweets containing #Coronavirus and in English. Retweets are reported
+        in 1000s, followers are reported in 100s and groups are a raw count.
+      </ion-text>
+      <div id="Retweeted">
+        <ion-label *ngIf="retweetError">{{retweetError}}</ion-label>
+        <ion-skeleton-text animated *ngIf="retweetLoading" [ngStyle]="{'width.px': retweetWidth,
+            'height.px' : retweetHeight }" slot="start">
+        </ion-skeleton-text>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-text>This chart displays overall ratios of tweets, retweets and replies posted
+        posted to Twitter with the #Coronavirus and in English.
+      </ion-text>
+      <div id="Frequencies">
+        <ion-label *ngIf="freqError">{{freqError}}</ion-label>
+        <ion-skeleton-text animated *ngIf="freqLoading" [ngStyle]="{'width.px': freqWidth,
+            'height.px' : freqHeight }" slot="start">
+        </ion-skeleton-text>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

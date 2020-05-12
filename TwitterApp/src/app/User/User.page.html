@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Users Activity
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+    <ion-label>
+      These charts show bot activity for tweets with #Coronavirus and in English. The first
+      chart shows the approximate bot activity over all tweets. The other chart shows the
+      proportion of activities the bots perform.
+    </ion-label>
+    <ion-row>
+      <ion-col>
+        <div id="BotsTotals">
+          <ion-label *ngIf="botError">{{botError}}</ion-label>
+          <ion-skeleton-text animated *ngIf="botLoading" [ngStyle]="{'width.px': botWidth ,
+          'height.px' : botHeight }" slot="start">
+          </ion-skeleton-text>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div id="BotsFrequency">
+          <ion-skeleton-text animated *ngIf="botLoading" [ngStyle]="{'width.px': botWidth ,
+          'height.px' : botHeight }" slot="start">
+          </ion-skeleton-text>
+        </div>
+      </ion-col>
+    </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-label>
+        This chart shows the users with the most followers in word cloud form of tweets containing
+        #Coronavirus and in English.
+      </ion-label>
+      <div id="Influencers">
+        <ion-label *ngIf="influencerError">{{influencerError}}</ion-label>
+        <ion-skeleton-text animated *ngIf="influencerLoading" [ngStyle]="{'width.px': influencerWidth ,
+              'height.px' : influencerHeight }" slot="start">
+        </ion-skeleton-text>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-label>
+        This chart shows the proportion of Tweets, Retweets and Replies that users with the word
+        "News" in the user description have tweeted for tweets containing #Coronavirus and
+        in English.
+      </ion-label>
+      <div id="News">
+        <ion-label *ngIf="newsError">{{newsError}}</ion-label>
+        <ion-skeleton-text animated *ngIf="newsLoading" [ngStyle]="{'width.px': newsWidth ,
+              'height.px' : newsHeight }" slot="start">
+        </ion-skeleton-text>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

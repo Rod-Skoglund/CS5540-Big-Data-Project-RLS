@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Maps
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <ion-text>
+        This map shows the amount of tweets originating by country for tweets containing
+        #Coronavirus and in English.
+      </ion-text>
+      <ion-row>
+        <div id="CountryMap">
+          <ion-label *ngIf="errorWorld">{{errorWorld}}</ion-label>
+          <ion-skeleton-text animated *ngIf="loadingWorld" [ngStyle]="{'width.px': worldWidth ,
+                'height.px' : worldHeight }" slot="start">
+          </ion-skeleton-text>
+        </div>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-text>
+        This map shows the point of origin for a tweet based on the latitude and longitude of
+        the tweet for tweets containing #Coronavirus and in English.
+      </ion-text>
+      <ion-row>
+        <div id="GPSMap">
+          <ion-label *ngIf="errorPoint">{{errorPoint}}</ion-label>
+          <ion-skeleton-text animated *ngIf="loadingPoint" [ngStyle]="{'width.px': pointWidth ,
+                'height.px' : pointHeight }" slot="start">
+          </ion-skeleton-text>
+        </div>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Hashtags
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <ion-text>
+        This shows the amount of times the top 200 Hashtags were posted for each Hashtag of tweets
+        collected containing #Coronavirus and in English.
+      </ion-text>
+      <div id="BubbleChart" >
+        <ion-label *ngIf="loadingBubble">{{errorBubble}}</ion-label>
+          <ion-skeleton-text *ngIf="loadingBubble" animated [ngStyle]="{'width.px': bubbleWidth ,
+            'height.px' : bubbleHeight }" slot="start">
+          </ion-skeleton-text>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-text>
+        This chart shows the top 10 Hashtags by count and their relation from tweets with #Coronavirus
+        and in English.
+      </ion-text>
+      <div id="Top10Hash">
+        <ion-label *ngIf="loadingTopHash">{{errorTopHash}}</ion-label>
+          <ion-skeleton-text animated *ngIf="loadingTopHash" [ngStyle]="{'width.px': TopHashWidth ,
+            'height.px' : TopHashHeight }" slot="start">
+          </ion-skeleton-text>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-text>
+        This graph shows the top 10 Hashtags by count excluding #Coronavirus for each hour for tweets
+        containing #Coronavirus and in English. #Coronavirus was excluded because it was required to
+        be in every tweet of the data set.
+      </ion-text>
+      <div id="TopHashTime">
+        <ion-label *ngIf="loadingTopHashTime">{{errorTopHashTime}}</ion-label>
+          <ion-skeleton-text animated *ngIf="loadingTopHashTime" [ngStyle]="{'width.px': TopHashTimeWidth ,
+            'height.px' : TopHashTimeHeight }" slot="start">
+          </ion-skeleton-text>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
